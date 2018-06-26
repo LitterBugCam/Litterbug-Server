@@ -1,0 +1,12 @@
+<%= link "get auth code", to: "#{@url}", target: "_blank" %>
+</br>
+<label class: "control-label">
+Enter the google authorization code here :
+</label>
+
+<%= form_for @changeset, stream_path(@conn, :create_event), fn f -> %>
+  <div class="form-group">
+    <%= text_input f, :title, placeholder: "Auth code", class: "form-control" %>
+  </div>
+  <%= submit "Confirm the authorization code and create the Youtube live event", class: "btn btn-primary" %>
+<% end %>

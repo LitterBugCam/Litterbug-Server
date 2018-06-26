@@ -1,0 +1,54 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+
+<section >
+  <div >
+    <%= link "Edit", to: device_path(@conn, :edit, @device), class: "torch-button" %>
+    <%= link "Back", to: device_path(@conn, :index), class: "torch-button" %>
+  </div>
+</section>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+    <div class="header">
+      <h3>Device Details</h3>
+    </div>
+    <ul>
+
+        <li>
+          <div class="torch-show-label">Title:</div>
+          <div class="torch-show-data"><%= @device.title %></div>
+        </li>
+
+
+
+        <li>
+          <div class="torch-show-label">Mac address:</div>
+          <div class="torch-show-data"><%= @device.mac_addr %></div>
+        </li>
+
+    </ul>
+    <div class="header">
+      <h3>Config file</h3>
+    </div>
+    <div >
+    <%= form_for @conn, device_path(@conn, :upload, @device), [as: "upload", multipart: :true], fn f -> %>
+    <%= file_input f, :file, accept: "image/*" %>
+    <button class="btn btn-primary" type="submit">Upload config file</button>
+  <% end %>
+</div>
+
+  </div>
+
+
+  <div class="col-md-4">
+
+
+
+</div>
+
+  </div>
+
+
+</div>

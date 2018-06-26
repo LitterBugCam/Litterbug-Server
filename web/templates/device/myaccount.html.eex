@@ -1,0 +1,66 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title"> Profile</h4>
+                    </div>
+                    <div class="content">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label>Company </label>
+                                        <input type="text" class="form-control" disabled placeholder="Company" value="Evercam LTD">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label  for="exampleInputEmail1">Email address</label>
+                                        <input disabled type="email" class="form-control" value=	<%=   if  Guardian.Plug.current_resource(@conn)!=nil do %>
+                    							        <%=  Guardian.Plug.current_resource(@conn).email %>
+
+                    							        <% end %>>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Address</label>
+                                        <input type="text" class="form-control" disabled placeholder="Home Address" value="6-7 Granby Row, Dublin 1, D01 FW20, Ireland.">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>City</label>
+                                        <input type="text" disabled class="form-control" placeholder="City" value="Dublin">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Country</label>
+                                        <input type="text" disabled class="form-control" placeholder="Country" value="Ireland">
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

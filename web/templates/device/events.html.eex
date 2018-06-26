@@ -1,0 +1,4 @@
+<div class="header">
+  <h3>Last  event detected</h3>
+</div>
+<div  class="torch-show-data">  <img src= <%= @url %> >  </div>

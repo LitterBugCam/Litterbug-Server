@@ -1,0 +1,55 @@
+<table class="minimalistBlack" width="1000px" style="text-align: center;">
+<tr>
+
+  <th>User</th>
+
+  <th>Stream information</th>
+
+  <th>Creation time</th>
+  <th >Status</th>
+  <th>Modify</th>
+  <th>Delete </th>
+  <th>Start/Stop</th>
+
+</tr>
+<%= for stream <- @streams do %>
+<tr>
+  <td> <%=stream.user.email  %> </td>
+
+
+  <td>  <a style="color:blue font-weight:bold ">Stream: </a>  <%=stream.title  %> <br />
+
+  <a style="color:blue font-weight:bold ">Rtsp: </a><%=stream.source %><br />
+
+   <a style="color:blue font-weight:bold ">Rtmp: </a><%= stream.output  %></td>
+  <td align="center">  <%= stream.inserted_at %></td>
+  <%= if stream.status=="online"  do %>
+  <td style="text-align:center;color:green;">  <%= stream.status  %>  </td>
+   <%else %>
+   <td  style=" text-align:center;color:red;">  <%= stream.status  %>  </td>
+   <% end %>
+
+
+  <td  style=" text-align:center;">    <%= link to: stream_path(@conn, :edit, id: stream.id), class: "btn-floating  waves-effect waves-light blue" do %>
+      <i class="material-icons"> settings </i>
+      <% end %>
+    </td>
+    <td style=" text-align: center;"  >  <%= link  to: stream_path(@conn, :player, stream: stream, action: "delete"), method: :post, class: "btn-floating  waves-effect waves-light red" do %>
+       <i  class="material-icons"> remove </i>
+       <% end %></td>
+       <%= if stream.status=="online"  do %>
+       <td  style=" text-align:center;">   <%= link  to: stream_path(@conn, :player, stream: stream, action: "stop"), method: :post, class: "btn-floating  waves-effect waves-light blue" do %>
+             <i  class="material-icons"> stop </i>
+             <% end %>
+             </td>
+        <%else %>
+        <td  style=" text-align:center;">
+            <%= link  to: stream_path(@conn, :player, stream: stream, action: "play"), method: :post, class: "btn-floating  waves-effect waves-light blue" do %>
+              <i  class="material-icons"> play </i>
+              <% end %>
+          </td>
+
+        <% end %>
+</tr>
+<% end %>
+</table>

@@ -1,0 +1,15 @@
+<%= form_for @changeset, stream_path(@conn, :login_global, action: "admin"), fn f -> %>
+Enter your admin credentials here
+  <div class="form-group">
+    <%= label f, :email, class: "control-label" %>
+    <%= text_input f, :email, class: "form-control" %>
+    <%= error_tag f, :email %>
+  </div>
+  <div class="form-group">
+    <%= label f, :password, class: "control-label" %>
+    <%= password_input f, :password, class: "form-control" %>
+    <%= error_tag f, :password %>
+  </div>
+  <div class="form-group">
+    <%= submit "login", class: "btn btn-primary" %>
+          <% end %>

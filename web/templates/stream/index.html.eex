@@ -1,0 +1,14 @@
+<!--Plugin!-->
+
+
+
+<div >
+
+  <ul>
+    <%= for object <- @objects_list do %>
+    <li> <%=  object[:key]  %></li>
+
+    <% end %>
+
+  </ul>
+</div>

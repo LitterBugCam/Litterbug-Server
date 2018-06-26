@@ -1,0 +1,25 @@
+
+
+
+
+<%= form_for @changeset, stream_path(@conn, :create), fn f -> %>
+  <div class="form-group">
+
+    <%= label f, :title, class: "control-label" %>
+    <%= text_input f, :title, placeholder: "Stream name", class: "form-control" %>
+    <%= error_tag f, :title %>
+
+    <%= label f, :source, class: "control-label" %>
+    <%= text_input f, :source, placeholder: "rtsp://username:password@xxx.xxx.xxx.xxx:port/ISAPI/Streaming/channels/201/av_stream ", class: "form-control" %>
+    <%= error_tag f, :source %>
+
+    <%= label f, :output, class: "control-label" %>
+    <%= text_input f, :output, placeholder: "rtmp://x.rtmp.youtube.com/live2/Key", class: "form-control" %>
+    <%= error_tag f, :output %>
+
+  </div>
+  <%= submit "Save and launch Stream ", class: "btn btn-primary" %>
+  <%= link to: stream_path(@conn, :index),style: "float:right", class: "btn btn-primary   waves-light blue" do %>
+  <i> Cancel </i>
+  <% end %>
+<% end %>

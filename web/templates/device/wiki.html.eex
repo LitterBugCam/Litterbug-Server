@@ -1,0 +1,119 @@
+<div class="content">
+  <h1> Adding new device : </h1>
+
+    <div class="container-fluid">
+      <ol>
+        <li>
+        Install Raspbian strech lite on SD card by following this   <a href="https://www.raspberrypi.org/documentation/installation/installing-images/">guide</a>
+</li>
+
+
+<li>
+Configure  your RPI to connect automatically to your WIFI by adding this lines to /etc/network/interfaces:
+<pre>
+<code>
+  auto lo
+iface lo inet loopback
+
+auto wlan0
+iface wlan0 inet static
+address 192.168.1.xxx
+netmask 255.255.255.0
+gateway 192.168.1.1
+wpa-essid SSID
+wpa-psk  SSID_PASSWORD
+dns-nameserver 8.8.8.8 192.168.1.1
+ </code>
+</pre>
+</li>
+
+<li>
+  Compile and install the optimized version of Opencv on the RPI using this  <a href="https://www.pyimagesearch.com/2017/10/09/optimizing-opencv-on-the-raspberry-pi/">guide</a>
+</li>
+
+
+<li>
+
+  Download the litterbug algorithm code from :  <br></br>
+
+  <a href="https://github.com/LitterBugCam/LitterBug-Algorithm">https://github.com/LitterBugCam/LitterBug-Algorithm</a>
+  <br></br>
+
+Put the source files into a folder named "littering" with:<br></br>
+
+  <code> mkdir littering</code><br></br>
+Then run  Make into that folder to compile.
+</li>
+
+
+<li>
+Download the litterbug IOT client script from :
+<br></br>
+
+<a href="https://github.com/LitterBugCam/Litterbug-Client">https://github.com/LitterBugCam/Litterbug-Client</a>
+<br></br>
+name the script iot_client.py then move it to littering folder
+
+
+</li>
+
+<li>
+  Create a file "litterbug.service" in /lib/systemd/system/litterbug.service and add the following commands:
+  <pre>
+
+  <code>
+    [Unit]
+    Description=Litterbug IoT communication
+    After=multi-user.target
+
+    [Service]
+    Type=simple
+    ExecStart=/usr/bin/python /home/pi/littering/iot_client.py
+    Restart=always
+
+    [Install]
+    WantedBy=multi-user.target
+
+  </code>
+
+  </pre>
+</li>
+
+<li>
+Before launching the service, we need to register the RPI on the AWS IOT gateway.
+<ul>
+<li>
+  Using Evercam AWS account, go to Thingshub page on IotCore:
+  <a href="https://eu-west-1.console.aws.amazon.com/iot/home?region=eu-west-1#/thinghub">
+    https://eu-west-1.console.aws.amazon.com/iot/home?region=eu-west-1#/thinghub</a>
+</li>
+
+
+
+<li>
+Click on create button to create a new thing. Give it a name and ignore everything else, and click next.
+On "Add certificate" page, click on  "create certificate" 
+</li>
+
+</ul>
+</li>
+
+
+<li>
+now Start the "io_client" service using the following command :
+
+<code>
+<pre>
+
+sudo systemctl start litterbug.service
+</code>
+
+</pre>
+The iot_client service will start the litterbug algorithm as well as intializing communication with AWS IOT gateway
+</li>
+
+
+
+</ol>
+    </div>
+        </div>

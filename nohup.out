@@ -1,0 +1,63 @@
+warning: variable "deps" does not exist and is being expanded to "deps()", please use parentheses to remove the ambiguity or change the variable name
+  /root/litterbugmanager/deps/aws_iot/mix.exs:14
+
+[info] [Porcelain]: goon executable not found
+[info] [Porcelain]: falling back to the basic driver.
+[info] [Porcelain]: (set `config :porcelain, driver: Porcelain.Driver.Basic` or `config :porcelain, goon_warn_if_missing: false` to disable this warning)
+[error] Failed to start Ranch listener Streaming.Endpoint.HTTP in :ranch_tcp:listen([port: 80]) for reason :eaddrinuse (address already in use)
+
+[info] Application streaming exited: Streaming.start(:normal, []) returned an error: shutdown: failed to start child: Streaming.Endpoint
+    ** (EXIT) shutdown: failed to start child: Phoenix.Endpoint.Handler
+        ** (EXIT) shutdown: failed to start child: {:ranch_listener_sup, Streaming.Endpoint.HTTP}
+            ** (EXIT) shutdown: failed to start child: :ranch_acceptors_sup
+                ** (EXIT) {:listen_error, Streaming.Endpoint.HTTP, :eaddrinuse}
+** (Mix) Could not start application streaming: Streaming.start(:normal, []) returned an error: shutdown: failed to start child: Streaming.Endpoint
+    ** (EXIT) shutdown: failed to start child: Phoenix.Endpoint.Handler
+        ** (EXIT) shutdown: failed to start child: {:ranch_listener_sup, Streaming.Endpoint.HTTP}
+            ** (EXIT) shutdown: failed to start child: :ranch_acceptors_sup
+                ** (EXIT) {:listen_error, Streaming.Endpoint.HTTP, :eaddrinuse}
+warning: variable "deps" does not exist and is being expanded to "deps()", please use parentheses to remove the ambiguity or change the variable name
+  /root/litterbugmanager/deps/aws_iot/mix.exs:14
+
+[info] [Porcelain]: goon executable not found
+[info] [Porcelain]: falling back to the basic driver.
+[info] [Porcelain]: (set `config :porcelain, driver: Porcelain.Driver.Basic` or `config :porcelain, goon_warn_if_missing: false` to disable this warning)
+[info] Running Streaming.Endpoint with Cowboy using http://0.0.0.0:80
+You have configured application :xain in your configuration file,
+but the application is not available.
+
+This usually means one of:
+
+  1. You have not added the application as a dependency in a mix.exs file.
+
+  2. You are configuring an application that does not really exist.
+
+Please ensure :xain exists or remove the configuration.
+
+Failed to watch /root/litterbugmanager; upper limit on inotify watches reached!
+Please increase the amount of inotify watches allowed per user via `/proc/sys/fs/inotify/max_user_watches'.
+11:24:23 - info: compiling
+11:24:23 - error: Compiling of web/static/css/app.scss failed. L68:2: 
+   Invalid CSS after "}": expected 1 selector or at-rule, was "media (max-width: 7" 
+           
+   >> }
+      -^
+Stack trace was suppressed. Run with `LOGGY_STACKS=1` to see the trace. 
+11:24:23 - error: Processing of web/static/js/app.js failed. Error: Could not load module 'vueify/lib/insert-css' from '/root/litterbugmanager/web/static/js'. Possible solution: add 'vueify' to package.json and `npm install`.
+Stack trace was suppressed. Run with `LOGGY_STACKS=1` to see the trace. 
+events.js:141
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: spawn notify-send ENOENT
+  at exports._errnoException (util.js:870:11)
+  at Process.ChildProcess._handle.onexit (internal/child_process.js:178:32)
+  at onErrorNT (internal/child_process.js:344:16)
+  at nextTickCallbackWith2Args (node.js:441:9)
+  at process._tickCallback (node.js:355:17)
+
+[info] SIGTERM received - shutting down
+
+
+=INFO REPORT==== 8-Jun-2018::11:25:10 ===
+SIGTERM received - shutting down

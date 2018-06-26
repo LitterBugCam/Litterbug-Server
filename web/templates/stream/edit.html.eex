@@ -1,0 +1,38 @@
+
+
+
+<%= form_for @changeset, stream_path(@conn, :update, @stream ), fn  f   -> %>
+
+
+     <span><%= link  to:  stream_path(@conn, :player, stream: @stream, action: "play"),style: "float:right", method: :post, class: "btn btn-primary   waves-light blue" do %>
+      <i> Start </i>
+      <% end %> <span>
+        <br />
+        <br />
+        <br />
+
+   <span>  <%= link  to: stream_path(@conn, :player, stream: @stream, action: "stop"),style: "float:right", method: :post, class: "btn btn-primary  waves-effect waves-light blue" do %>
+      <i > stop </i>
+      <% end %></span>
+
+
+<div class="form-group">
+  <%= text_input f, :title, placeholder: @stream.title, class: "form-control" %>
+  <%= text_input f, :source, placeholder: @stream.source, class: "form-control" %>
+  <%= text_input f, :output, placeholder: @stream.output, class: "form-control" %>
+
+  <%= error_tag f, :title %>
+  <%= error_tag f, :source %>
+  <%= error_tag f, :output %>
+</div>
+
+<%= submit "Save  ", class: "btn btn-primary" %>
+<%= link to: stream_path(@conn, :index), style: "float:right",class: "btn btn-primary   waves-light blue" do %>
+<i> Cancel </i>
+<% end %>
+<% end %>
+
+
+
+<iframe src=<%= static_path(@conn, "/youtube.html") %>
+   width="560" height="315" frameborder="0" allowfullscreen></iframe>

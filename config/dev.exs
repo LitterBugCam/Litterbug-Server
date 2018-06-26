@@ -49,8 +49,8 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :streaming, Streaming.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "ilias",
-  password: "Algeria7201990",
-  database: "littering",
-  hostname: "litterbugdb.c1ekrfqx70oj.eu-west-1.rds.amazonaws.com",
+  username: 
+  password: 
+  database:
+  hostname: 
   pool_size: 10

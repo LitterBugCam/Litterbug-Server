@@ -1,0 +1,15 @@
+# configure info #
+##################
+prod.secret.exs
+
+# certification files #
+#######################
+*.crt
+*.key
+*.pem
+
+# private info #
+################
+authorize_url.txt
+client_secrets.json
+ls

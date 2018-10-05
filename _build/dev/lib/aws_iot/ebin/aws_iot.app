@@ -1,10 +1,10 @@
 {application,aws_iot,
-             [{description,"aws_iot"},
+             [{applications,[kernel,stdlib,elixir,logger]},
+              {description,"aws_iot"},
               {modules,['Elixir.Aws.Iot','Elixir.Aws.Iot.ThingShadow',
                         'Elixir.Aws.Iot.ThingShadow.Client',
                         'Elixir.Aws.Iot.ThingShadow.EventHandler',
                         'Elixir.Aws.Iot.ThingShadow.Supervisor']},
               {registered,[]},
               {vsn,"0.0.1"},
-              {applications,[kernel,stdlib,elixir,logger]},
               {mod,{'Elixir.Aws.Iot',[]}}]}.

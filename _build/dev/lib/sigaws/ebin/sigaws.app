@@ -6,5 +6,4 @@
                         'Elixir.Sigaws.Provider','Elixir.Sigaws.Signer',
                         'Elixir.Sigaws.Util','Elixir.Sigaws.Verifier']},
               {registered,[]},
-              {vsn,"0.7.2"},
-              {extra_applications,[logger]}]}.
+              {vsn,"0.7.2"}]}.

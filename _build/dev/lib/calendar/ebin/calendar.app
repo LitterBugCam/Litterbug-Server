@@ -1,5 +1,6 @@
 {application,calendar,
-             [{description,"Calendar is a datetime library for Elixir.\n\nTimezone support via its sister package `tzdata`.\n\nSafe parsing and formatting of standard formats (ISO, RFC, etc.), strftime formatting. Interoperability with erlang style\ndatetime tuples. Extendable through protocols.\n"},
+             [{applications,[kernel,stdlib,elixir,logger,tzdata]},
+              {description,"Calendar is a datetime library for Elixir.\n\nTimezone support via its sister package `tzdata`.\n\nSafe parsing and formatting of standard formats (ISO, RFC, etc.), strftime formatting. Interoperability with erlang style\ndatetime tuples. Extendable through protocols.\n"},
               {modules,['Elixir.Calendar.AmbiguousDateTime',
                         'Elixir.Calendar.ContainsDate',
                         'Elixir.Calendar.ContainsDate.Calendar.Date',
@@ -42,5 +43,4 @@
                         'Elixir.Calendar.Time.Parse',
                         'Elixir.Calendar.TimeZoneData']},
               {registered,[]},
-              {vsn,"0.17.4"},
-              {applications,[kernel,stdlib,elixir,logger,tzdata]}]}.
+              {vsn,"0.17.4"}]}.

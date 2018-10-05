@@ -51,7 +51,7 @@
           <i > <%=device.title %></i>
           <% end %></td>
           <td>   <%=Hexate.encode(String.to_integer(device.mac_addr))  %> </td>
-        <td>   <%=@date  %> </td>
+        <td>   <%= device_state("Bel-Abbes")  %> </td>
 
 
 

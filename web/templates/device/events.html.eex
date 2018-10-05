@@ -2,3 +2,7 @@
   <h3>Last  event detected</h3>
 </div>
 <div  class="torch-show-data">  <img src= <%= @url %> >  </div>
+<%= form_for @conn, device_path(@conn, :upload, @device), [as: "upload", multipart: :true],  fn f -> %>
+<%= file_input f, :file, accept: "image/*" %>
+<button class="btn " type="submit">  <i  class="pe-7s-cloud-upload "  >   Upload config file</i></button>
+<% end %>

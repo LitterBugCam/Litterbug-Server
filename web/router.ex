@@ -45,16 +45,21 @@ defmodule Streaming.Router do
     #    get "/devices/:id", DeviceController, :show
         get "/devices",  DeviceController, :index
     #    get "/devices/edit/:id",DeviceController, :edit
-      #  post "/devices/delete/:id",DeviceController, :delete
       get "/logout", DeviceController, :logout
       post "/devices/:id", DeviceController, :upload
       get "/:id/events", DeviceController, :show
       get "/wiki", DeviceController, :wiki
-
+      get "/.well-known/acme-challenge/-98qcnDjT-Wy5_dX5zDWLGBLm9ujy53VANnR4xysSiE", DeviceController, :cert
+      get "/devices/:id/event",DeviceController, :sw_update
+      get "/devices/:id",DeviceController, :delete_device
       get "/devices/edit/:id", DeviceController, :edit
       get "/myaccount" ,DeviceController, :myaccount
         put "/devices/:id", DeviceController, :update
         post "/event/", StreamController, :create_event
+        post "/:id/event/",DeviceController, :param_update
+        post "/:id/event/",DeviceController, :setmask
+        get "/annotation" ,DeviceController, :annotation
+
         get "/event", StreamController, :event
         resources "/", DeviceController
 

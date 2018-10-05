@@ -1,4 +1,5 @@
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
@@ -6,18 +7,26 @@
 
 <link href="<%= static_path(@conn, "/css/bootstrap.min.css") %>"  rel="stylesheet" />
 <link href="<%= static_path(@conn, "/css/bootstrap.min.css") %>"  rel="stylesheet" />
+<script src='http://odyniec.net/projects/imgareaselect/jquery.imgareaselect.pack.js'></script>
+<script src="http://odyniec.net/projects/imgareaselect/jquery.imgareaselect.pack.js"></script>
+<link src="http://odyniec.net/projects/imgareaselect/css/imgareaselect-animated.css"></link>
+<link rel="stylesheet" type="text/css" href="<%= static_path(@conn, "/css/imgareaselect-default.css") %>" />
+ <script type="text/javascript" src="<%= static_path(@conn, "/js/jquery.min.js") %>" ></script>
+ <script type="text/javascript" src="<%= static_path(@conn, "/js/jquery.imgareaselect.js") %>"></script>
+ <script type="text/javascript" src="<%= static_path(@conn, "/js/jquery.imgareaselect.min.js") %>"></script>
 
-<link type="text/css" rel="stylesheet" href="<%= static_path(@conn, "/css/annotorious.css") %>" />
-<script type="text/javascript" src="<%= static_path(@conn, "/js/annotorious.min.js") %>"></script>
+ <script type="text/javascript" src="<%= static_path(@conn, "/js/jquery.imgareaselect.pack.js") %>"></script>
+ <script type="text/javascript" src="<%= static_path(@conn, "/vendor/jquery.min.js.map") %>"></script>
+
+
     <div class="content">
-
-
 
       <ul class="nav nav-tabs ">
         <li class="active"><a data-toggle="tab" href="#events">Events</a></li>
 
         <li ><a data-toggle="tab" href="#home">Device Info</a></li>
         <li ><a data-toggle="tab" href="#config">Config</a></li>
+        <li ><a data-toggle="tab" href="#roi">Detection Area</a></li>
 
       </ul>
 
@@ -39,7 +48,11 @@
 
 
                             <li>
-                              <div >  <h4><p class="category"></p><%=Hexate.encode(String.to_integer(@device.mac_addr))  %></h4></div>
+                              <div >
+                                  <h4>
+                                    <p class="category"></p><%=Hexate.encode(String.to_integer(@device.mac_addr))  %>
+                                  </h4>
+                                </div>
 
 
                             </li>
@@ -50,19 +63,26 @@
                   </div>
                   <div class="col-md-2 col-md-offset-3">
                     <div class="container-fluid">
-                      <div class="row ">
+                      <div class="row">
 
-                        <%= link  to: device_path(@conn, :delete, @device),  method: :delete, data: [confirm: "Are you sure?"] , class: "btn btn-default btn-block" do %>
-                            <i  class="pe-7s-trash"  > DELETE </i>
-                            <% end %>
+                          <%= link  to: device_path(@conn, :sw_update, @device), method: :get, class: "btn btn-default btn-block", style: " float:right" do %>
+                                 <i  class="pe-7s-cloud-upload"> UPDATE </i>
+                                 <% end %>
                       </div>
-
                       <div class="row">
 
                           <%= link  to: device_path(@conn, :edit, @device), method: :get, class: "btn btn-default btn-block", style: " float:right" do %>
                                  <i  class="pe-7s-tools"> EDIT </i>
                                  <% end %>
                       </div>
+                      <div class="row ">
+
+                        <%= link  to: device_path(@conn, :delete_device, @device),  method: :get  , class: "btn btn-default btn-block" do %>
+                            <i  class="pe-7s-trash"  > DELETE </i>
+                            <% end %>
+                      </div>
+
+
 
                     </div>
                   </div>
@@ -120,12 +140,148 @@
             <h3>Send Configuration file</h3>
           </div>
           <div >
-          <%= form_for @conn, device_path(@conn, :upload, @device), [as: "upload", multipart: :true],  fn f -> %>
-          <%= file_input f, :file, accept: "image/*" %>
-    <button class="btn " type="submit">  <i  class="pe-7s-cloud-upload "  >   Upload config file</i></button>
-        <% end %>
-      </div>
-        </div>
+
+
+            <%= form_for @conn, device_path(@conn, :setmask, @device, action: "mask"), fn f -> %>
+          <div class="row">
+
+                <div class="col-md-2">
+
+                  <label style="float: left">  Staticness threshold    </label>
+                      <%= text_input :user, :x1, value: "0.00001" , id: "staticness_th"%>
+
+                      <label style="float: left">  Objectness threshold   </label>
+                          <%= text_input :user, :y1, value: "0.00001", id: "objectness_th"%>
+
+                          <label style="float: left" >  Littering time threshold 1     </label>
+                              <%= text_input :user, :x2, value: "50", id: "aotime"%>
+
+                              <label style="float: left">  Littering time threshold 2    </label>
+                                  <%= text_input :user, :y2, value: "30", id: "aotime2"%>
+
+                                  <label style="float: left">  Learning rate    </label>
+                                      <%= text_input :user, :y2, value: "0.0001", id: "alpha"%>
+
+                                      <label style="float: left">  Foreground threshold    </label>
+                                          <%= text_input :user, :y2, value: "50", id: "fore_th"%>
+
+                                          <label style="float: left">  N# frames initialization    </label>
+                                              <%= text_input :user, :y2, value: "300", id: "frameinit"%>
+
+                                              <label style="float: left">  Low light    </label>
+                                                  <%= text_input :user, :y2, value: "0", id: "low_light"%>
+
+                                                  <label style="float: left">  frame mod    </label>
+                                                      <%= text_input :user, :y2, value: "1", id: "framemod"%>
+
+                                                      <label style="float: left">  Frame mod2    </label>
+                                                          <%= text_input :user, :y2, value: "5", id: "framemod2"%>
+
+                                                          <label style="float: left">  Minimum object size    </label>
+                                                              <%= text_input :user, :y2, value: "30", id: "minsize"%>
+
+                                                              <label style="float: left">  Resize scale    </label>
+                                                                  <%= text_input :user, :y2, value: "1", id: "resize_scale"%>
+
+                                                                  <label style="float: left">  Human_detection    </label>
+                                                                      <%= text_input :user, :y2, value: "1", id: "Human_detection"%>
+              </div>
+
+
+
+              <div class="col-md-2">
+                <%= submit "Send New Config" ,  class: "btn btn-default "%>
+
+
+                <%= link  to: device_path(@conn, :show, @device), method: :get, class: "btn btn-default  " do %>
+                       Set default parameters
+                       <% end %>
+              </div>
+          </div>
+
+
+
+            </div>
+
+
+
+          <% end %>
+
 
       </div>
+
+      <div id="roi" class="tab-pane fade">
+        <div class="header">
+          <h3>Select Region of interest on the image</h3>
+        </div>
+
+
+            <%= form_for @conn, device_path(@conn, :setmask, @device, action: "mask"), fn f -> %>
+            <div class="row">
+              <div class="col-md-8">
+    <img id="photo"  src= <%="https://s3-us-west-2.amazonaws.com/littercam/device-#{@device.mac_addr}/live3.jpg"  %>   >
+            </div>
+        <!--    <%= @device.mac_addr  %>-->
+
+        <!--    <%=  IO.inspect(String.slice(@device.mac_addr, -6..-1)) %>-->
+                <div class="col-md-2">
+                  <label >  X1    </label>
+                      <%= text_input :user, :x1, value: "" , id: "x1"%>
+
+                      <label >  Y1    </label>
+                          <%= text_input :user, :y1, value: "", id: "y1"%>
+
+                          <label >  X2    </label>
+                              <%= text_input :user, :x2, value: "", id: "x2"%>
+
+                              <label >  Y2    </label>
+                                  <%= text_input :user, :y2, value: "", id: "y2"%>
+                                  <%= submit "Set Mask" ,  class: "btn btn-default "%>
+
+
+
+  <% end %>
+
+
+
+      </div>
+
     </div>
+  </div>
+        </div>
+
+
+
+    <script type="text/javascript">
+
+    jQuery.noConflict();
+
+      $('#photo').imgAreaSelect (
+        {
+          handles: true,
+          onSelectEnd: function (img, selection) {
+              //alert('x: ' + selection.x1 + '; y: ' + selection.y1);
+              $("#x1").val(selection.x1);
+              $("#y1").val(selection.y1);
+              $("#x2").val(selection.x2);
+              $("#y2").val(selection.y2);
+
+              var txtFile = "/root/mask.txt";
+              var file = new File([""],txtFile);
+              var str = 'x: ' + selection.x1 + '; y: ' + selection.y1;
+
+              file.open("w"); // open file with write access
+
+
+              file.write(str);
+              file.close();
+
+          }
+      });
+
+
+
+
+
+
+</script>

@@ -1,0 +1,12 @@
+{application,emqttc,
+             [{id,"emqttc"},
+              {vsn,"0.8.0"},
+              {description,"Erlang MQTT Client"},
+              {registered,[]},
+              {applications,[kernel,stdlib]},
+              {included_applications,[getopt,gen_logger]},
+              {env,[]},
+              {modules,[emqttc,emqttc_keepalive,emqttc_message,emqttc_opts,
+                        emqttc_packet,emqttc_parser,emqttc_protocol,
+                        emqttc_reconnector,emqttc_serialiser,emqttc_socket,
+                        emqttc_topic]}]}.

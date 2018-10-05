@@ -9,5 +9,4 @@
                         'Elixir.ExAws.S3.Lazy','Elixir.ExAws.S3.Parsers',
                         'Elixir.ExAws.S3.Upload','Elixir.ExAws.S3.Utils']},
               {registered,[]},
-              {vsn,"2.0.0"},
-              {extra_applications,[logger]}]}.
+              {vsn,"2.0.0"}]}.

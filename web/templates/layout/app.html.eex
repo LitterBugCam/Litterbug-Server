@@ -8,10 +8,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 	<title>LitterBug Dashboard</title>
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
-
+		<script src="http://odyniec.net/projects/imgareaselect/jquery.imgareaselect.pack.js"></script>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"    rel="stylesheet">
     <!-- Bootstrap core CSS     -->
     <link href="<%= static_path(@conn, "/css/bootstrap.min.css") %>"  rel="stylesheet" />
@@ -22,7 +23,16 @@
     <!--  Light Bootstrap Table core CSS    -->
     <link href="<%= static_path(@conn, "/css/light-bootstrap-dashboard.css?v=1.4.0") %>"  rel="stylesheet"/>
 
+		<script src='http://odyniec.net/projects/imgareaselect/jquery.imgareaselect.pack.js'></script>
+		<script src="http://odyniec.net/projects/imgareaselect/jquery.imgareaselect.pack.js"></script>
+		<link src="http://odyniec.net/projects/imgareaselect/css/imgareaselect-animated.css"></link>
+		<link rel="stylesheet" type="text/css" href="<%= static_path(@conn, "/css/imgareaselect-default.css") %>" />
+		 <script type="text/javascript" src="<%= static_path(@conn, "/js/jquery.min.js") %>" ></script>
+		 <script type="text/javascript" src="<%= static_path(@conn, "/js/jquery.imgareaselect.js") %>"></script>
+		 <script type="text/javascript" src="<%= static_path(@conn, "/js/jquery.imgareaselect.min.js") %>"></script>
 
+		 <script type="text/javascript" src="<%= static_path(@conn, "/js/jquery.imgareaselect.pack.js") %>"></script>
+		 <script type="text/javascript" src="<%= static_path(@conn, "/vendor/jquery.min.js.map") %>"></script>
 
 
 
@@ -62,7 +72,7 @@
 									<p>devices</p>
 
 								 <%= end %>
-                
+
                 </li>
 
 								<li class="active">

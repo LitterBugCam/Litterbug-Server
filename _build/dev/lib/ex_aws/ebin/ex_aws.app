@@ -25,5 +25,4 @@
                         'Elixir.Mix.Tasks.Kinesis.Tail']},
               {registered,[]},
               {vsn,"2.0.2"},
-              {extra_applications,[logger,crypto]},
               {mod,{'Elixir.ExAws',[]}}]}.

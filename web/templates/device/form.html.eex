@@ -1,8 +1,10 @@
-<%= form_for @changeset, @action, [multipart: true, id: "torch-form"], fn f -> %>
+<%= form_for @changeset, device_path(@conn, :create), fn f -> %>
   <fieldset class="torch-panel">
     <legend>
     </legend>
     <%= if @changeset.action do %>
+    <%=  @changeset.action %>
+
       <p class="torch-form-error">Oops, something went wrong! Please check the errors below.</p>
     <% end %>
 

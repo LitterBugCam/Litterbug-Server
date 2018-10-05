@@ -8,7 +8,7 @@ defmodule Streaming.Manager.Device do
     field :published_at, :naive_datetime
     field :title, :string
     belongs_to :user,  Streaming.Auth.User
-    has_many :events, Streaming.Manager.Device
+    has_many :events, Streaming.Manager.Event, on_delete: :delete_all
 
     timestamps()
   end

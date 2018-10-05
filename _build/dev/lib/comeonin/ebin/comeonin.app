@@ -3,5 +3,4 @@
               {description,"Password hashing library for Elixir.\n"},
               {modules,['Elixir.Comeonin','Elixir.Comeonin.Bcrypt']},
               {registered,[]},
-              {vsn,"4.1.1"},
-              {extra_applications,[logger]}]}.
+              {vsn,"4.1.1"}]}.

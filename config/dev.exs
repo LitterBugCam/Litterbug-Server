@@ -27,7 +27,6 @@ config :streaming, Streaming.Endpoint,
   watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin",
                     cd: Path.expand("../", __DIR__)]]
 
-
 # Watch static and templates for browser reloading.
 config :streaming, Streaming.Endpoint,
   live_reload: [
@@ -39,18 +38,21 @@ config :streaming, Streaming.Endpoint,
     ]
   ]
 
-# Do not include metadata nor timestamps in development logs
-config :logger, :console, format: "[$level] $message\n"
+config :logger, :console, 
+  format: "[$level] $message\n"
 
 # Set a higher stacktrace during development. Avoid configuring such
 # in production as building large stacktraces may be expensive.
-config :phoenix, :stacktrace_depth, 20
+config :phoenix, :stacktrace_depth, 
+  20
 
 # Configure your database
 config :streaming, Streaming.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: 
-  password: 
-  database:
-  hostname: 
-  pool_size: 10
+  username: System.get_env("username"),
+  password: System.get_env("password"),
+  database: System.get_env("database"),
+  hostname: System.get_env("hostname"),
+  pool_size: System.get_env("pool_size")
+
+import_config "prod.secret.exs"

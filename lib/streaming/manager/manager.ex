@@ -158,7 +158,7 @@ defp filter_config(:devices) do
     text :title
       date :published_at
       text :mac_addr
-      
+
   end
 end
 end

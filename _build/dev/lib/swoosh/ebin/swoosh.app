@@ -1,5 +1,6 @@
 {application,swoosh,
-             [{description,"Compose, deliver and test your emails easily in Elixir. Supports SMTP, Sendgrid, Mandrill, Postmark and Mailgun out of the box.\nPreview your mails in the browser. Great integration with Phoenix.\n"},
+             [{applications,[kernel,stdlib,elixir,logger,poison,hackney,mime]},
+              {description,"Compose, deliver and test your emails easily in Elixir. Supports SMTP, Sendgrid, Mandrill, Postmark and Mailgun out of the box.\nPreview your mails in the browser. Great integration with Phoenix.\n"},
               {modules,['Elixir.Mix.Tasks.Swoosh.Mailbox.Server',
                         'Elixir.Plug.Swoosh.MailboxPreview','Elixir.Swoosh',
                         'Elixir.Swoosh.Adapter',
@@ -20,5 +21,4 @@
                         'Elixir.Swoosh.TestAssertions']},
               {registered,[]},
               {vsn,"0.8.1"},
-              {applications,[kernel,stdlib,elixir,logger,poison,hackney,mime]},
               {mod,{'Elixir.Swoosh.Application',[]}}]}.

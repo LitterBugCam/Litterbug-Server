@@ -1,5 +1,6 @@
 {application,filtrex,
-             [{description,"A library for performing and validating complex filters from a client (e.g. smart filters)\n"},
+             [{applications,[kernel,stdlib,elixir,logger,tzdata]},
+              {description,"A library for performing and validating complex filters from a client (e.g. smart filters)\n"},
               {modules,['Elixir.Filtrex','Elixir.Filtrex.AST',
                         'Elixir.Filtrex.Condition',
                         'Elixir.Filtrex.Condition.Boolean',
@@ -18,5 +19,4 @@
                         'Elixir.Filtrex.Utils.Encoder',
                         'Elixir.Filtrex.Validator.Date']},
               {registered,[]},
-              {vsn,"0.4.1"},
-              {applications,[kernel,stdlib,elixir,logger,tzdata]}]}.
+              {vsn,"0.4.1"}]}.

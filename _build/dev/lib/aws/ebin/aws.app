@@ -1,5 +1,6 @@
 {application,aws,
-             [{description,"AWS clients for Elixir"},
+             [{applications,[kernel,stdlib,elixir,httpoison,logger,timex]},
+              {description,"AWS clients for Elixir"},
               {modules,['Elixir.AWS','Elixir.AWS.APIGateway',
                         'Elixir.AWS.AppStream','Elixir.AWS.AutoScaling',
                         'Elixir.AWS.Batch','Elixir.AWS.Budgets',
@@ -43,5 +44,4 @@
                         'Elixir.AWS.WAF','Elixir.AWS.WAF.Regional',
                         'Elixir.AWS.Workspaces','Elixir.AWS.XRay']},
               {registered,[]},
-              {vsn,"0.5.0"},
-              {applications,[kernel,stdlib,elixir,httpoison,logger,timex]}]}.
+              {vsn,"0.5.0"}]}.

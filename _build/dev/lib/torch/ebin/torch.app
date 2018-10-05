@@ -1,6 +1,6 @@
 {application,torch,
-             [{applications,[kernel,stdlib,elixir,logger,filtrex,phoenix_html,
-                             phoenix,scrivener_ecto]},
+             [{applications,[kernel,stdlib,elixir,logger,phoenix_html,phoenix,
+                             filtrex,scrivener_ecto]},
               {description,"Rapid admin generator for Phoenix"},
               {modules,['Elixir.Mix.Tasks.Torch.Gen.Html',
                         'Elixir.Mix.Tasks.Torch.Install',
@@ -11,5 +11,4 @@
                         'Elixir.Torch.PageView','Elixir.Torch.PaginationView',
                         'Elixir.Torch.TableView']},
               {registered,[]},
-              {vsn,"2.0.0-rc.1"},
-              {extra_applications,[logger]}]}.
+              {vsn,"2.0.0-rc.1"}]}.

@@ -272,6 +272,7 @@ input:focus {
 
 .sidebar .logo {
     padding: 10px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .sidebar .logo p {
@@ -337,6 +338,7 @@ input:focus {
 
 .sidebar .nav li.separator {
     margin: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .sidebar .nav li.separator + li {
@@ -369,6 +371,7 @@ input:focus {
 
 .sidebar .logo {
     padding: 10px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .sidebar .logo p {

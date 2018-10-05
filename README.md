@@ -1,4 +1,4 @@
-
+<<<<<<< HEAD
 # Discuss
 
 To start your Phoenix app:
@@ -19,3 +19,6 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
   * Docs: https://hexdocs.pm/phoenix
   * Mailing list: http://groups.google.com/group/phoenix-talk
   * Source: https://github.com/phoenixframework/phoenix
+=======
+# Litterbug-WebApp
+>>>>>>> 7f7f6b2b4ddad6564067dfa6765e926e0728424f

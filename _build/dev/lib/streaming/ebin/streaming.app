@@ -36,5 +36,4 @@
                         'Elixir.Streaming.Web.GuardianSerializer']},
               {registered,[]},
               {vsn,"0.0.1"},
-              {mod,{'Elixir.Streaming',[]}},
-              {extra_applications,[logger,aws_iot]}]}.
+              {mod,{'Elixir.Streaming',[]}}]}.

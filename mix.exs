@@ -54,7 +54,7 @@ defmodule Streaming.Mixfile do
       {:poison, "~> 3.0"},
       {:httpoison, "~> 0.11.1"},
       {:ex_aws, "~> 2.0"},
-      {:getopt, "~> 0.8.2", override: :true}
+      {:getopt, "~> 0.8.2", override: :true},
   {:ex_aws_s3, "~> 2.0"},
   {:sigaws, "~> 0.7"},
   #{:hackney, "~> 1.9"},
